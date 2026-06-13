@@ -1,0 +1,282 @@
+$green: #8BAC3E;
+$dark: #333;
+$gray: #757575;
+$radius: 20px;
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+@mixin button {
+  border: none;
+  border-radius: 25px;
+  background: $green;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  color: $dark;
+}
+button {
+  @include button;
+}
+.logo {
+  width: 180px;
+}
+.header {
+  width: 85%;
+  margin: 45px auto 0;
+  @include flex-center;
+  justify-content: space-between;
+}
+.menu {
+  @include flex-center;
+  gap: 20px;
+}
+.login {
+  @include flex-center;
+  gap: 20px;
+  button {
+    width: 150px;
+    height: 40px;
+  }
+}
+.hero {
+  width: 80%;
+  margin: 90px auto 0;
+  @include flex-center;
+  justify-content: space-between;
+}
+.hero-text {
+  width: 42%;
+  h1 {
+    font-size: 60px;
+    color: $green;
+    margin-bottom: 25px;
+  }
+  p {
+    font-size: 18px;
+    color: $gray;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+}
+.hero-buttons {
+  @include flex-center;
+  gap: 15px;
+  button {
+    width: 150px;
+    height: 42px;
+  }
+  .about-btn {
+    background: #F2F2F2;
+    color: $dark;
+  }
+}
+.hero-img {
+  position: relative;
+  img {
+    max-width: 520px;
+    width: 100%;
+  }
+}
+.mini-card {
+  position: absolute;
+  left: -40px;
+  bottom: 40px;
+  width: 260px;
+  padding: 12px;
+  border-radius: $radius;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  @include flex-center;
+  gap: 14px;
+  img {
+    width: 65px;
+  }
+  p {
+    color: $green;
+    font-size: 14px;
+  }
+}
+.block {
+  width: 85%;
+  margin: 100px auto;
+  h2 {
+    font-size: 38px;
+  }
+  h3 {
+    font-size: 38px;
+    color: $green;
+    margin-bottom: 40px;
+  }
+}
+.category-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.category-card {
+  width: 220px;
+  height: 170px;
+  border-radius: 14px;
+  text-align: center;
+  @include flex-center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  span {
+    font-size: 46px;
+  }
+  &:hover {
+    box-shadow: 10px 15px 20px rgba(0,0,0,.18);
+  }
+}
+.green-card {
+  background: #EDF7E9;
+}
+.blue-card {
+  background: #EAF3F5;
+}
+.pink-card {
+  background: #F8EEF2;
+}
+.yellow-card {
+  background: #F7F9E7;
+}
+.active-card {
+  background: #EAF7FA;
+  height: 205px;
+}
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+.food-card {
+  padding: 18px;
+  border-radius: 18px;
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 18px;
+  }
+  h4 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  p {
+    color: $green;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  span {
+    color: orange;
+    font-size: 20px;
+  }
+  &:hover {
+    box-shadow: 10px 15px 20px rgba(0,0,0,.18);
+  }
+}
+.all-btn {
+  display: block;
+  margin: 60px auto 0;
+  width: 220px;
+  height: 58px;
+}
+
+.mobile-menu {
+  display: none;
+}
+@media (max-width: 510px) {
+  body {
+    padding-bottom: 65px;
+  }
+  .header {
+    width: 100%;
+    margin: 0;
+    padding: 16px 24px;
+    .logo {
+      width: 105px;
+    }
+    .menu {
+      display: none;
+    }
+  }
+  .hero {
+    width: 100%;
+    margin: 0;
+    padding: 40px 24px 70px;
+    flex-direction: column;
+  }
+  .hero-text {
+    width: 100%;
+    h1 {
+      font-size: 38px;
+    }
+  }
+  .hero-img img {
+    width: 240px;
+  }
+  .mini-card {
+    left: 60px;
+    bottom: -5px;
+    width: 230px;
+  }
+  .block {
+    width: 100%;
+    margin: 60px 0;
+    padding: 0 24px;
+    h2,
+    h3 {
+      font-size: 20px;
+    }
+  }
+  .category-list {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .category-card {
+    min-width: 180px;
+    height: 140px;
+  }
+  .food-list {
+    grid-template-columns: 1fr;
+  }
+  .food-card {
+    height: 220px;
+    h4 {
+      font-size: 17px;
+    }
+    p,
+    span {
+      font-size: 13px;
+    }
+    img {
+      width: 95px;
+      height: 95px;
+    }
+  }
+  .all-btn,
+  .footer {
+    display: none;
+  }
+  .mobile-menu {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    background: white;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
