@@ -2,6 +2,11 @@ $green: #8BAC3E;
 $dark: #333;
 $gray: #757575;
 $radius: 20px;
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -34,11 +39,11 @@ button {
   @include flex-center;
   justify-content: space-between;
 }
-.menu {
+.nav {
   @include flex-center;
   gap: 20px;
 }
-.login {
+.auth {
   @include flex-center;
   gap: 20px;
   button {
@@ -52,7 +57,7 @@ button {
   @include flex-center;
   justify-content: space-between;
 }
-.hero-text {
+.hero__text {
   width: 42%;
   h1 {
     font-size: 60px;
@@ -66,19 +71,19 @@ button {
     margin-bottom: 30px;
   }
 }
-.hero-buttons {
+.actions {
   @include flex-center;
   gap: 15px;
   button {
     width: 150px;
     height: 42px;
   }
-  .about-btn {
-    background: #F2F2F2;
-    color: $dark;
-  }
 }
-.hero-img {
+.secondary {
+  background: #F2F2F2;
+  color: $dark;
+}
+.hero__image {
   position: relative;
   img {
     max-width: 520px;
@@ -121,7 +126,7 @@ button {
   justify-content: space-between;
   gap: 20px;
 }
-.category-card {
+.cat {
   width: 220px;
   height: 170px;
   border-radius: 14px;
@@ -137,28 +142,52 @@ button {
     box-shadow: 10px 15px 20px rgba(0,0,0,.18);
   }
 }
-.green-card {
+.green {
   background: #EDF7E9;
 }
-.blue-card {
+
+.blue {
   background: #EAF3F5;
 }
-.pink-card {
+
+.pink {
   background: #F8EEF2;
 }
-.yellow-card {
+
+.yellow {
   background: #F7F9E7;
 }
-.active-card {
+
+.active {
   background: #EAF7FA;
   height: 205px;
 }
-.food-list {
+
+.bg-green {
+  background: #EDF7E9;
+}
+
+.bg-blue {
+  background: #EAF3F5;
+}
+
+.bg-pink {
+  background: #F8EEF2;
+}
+
+.bg-yellow {
+  background: #F7F9E7;
+}
+
+.bg-purple {
+  background: #EEF0FC;
+}
+.grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
 }
-.food-card {
+.food {
   padding: 18px;
   border-radius: 18px;
   img {
@@ -196,6 +225,84 @@ button {
 .mobile-menu {
   display: none;
 }
+.footer {
+  width: 90%;
+  margin: 70px auto 30px;
+
+  &__box {
+    background: #F9FFF6;
+    border-radius: $radius;
+    padding: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 55px;
+  }
+
+  &__box > div {
+    max-width: 330px;
+  }
+
+  p {
+    color: $gray;
+    font-size: 15px;
+    line-height: 28px;
+    margin: 8px 0;
+  }
+
+  h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+
+    span {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: white;
+      color: $green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:first-child {
+        background: $green;
+        color: white;
+      }
+    }
+  }
+
+  .email {
+    display: flex;
+    margin: 20px 0;
+
+    input {
+      width: 200px;
+      height: 42px;
+      padding-left: 15px;
+      border: 1px solid $dark;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+    }
+
+    button {
+      width: 70px;
+      border-radius: 0 8px 8px 0;
+    }
+  }
+
+  .copy {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: 35px;
+  }
+}
 @media (max-width: 510px) {
   body {
     padding-bottom: 65px;
@@ -207,7 +314,7 @@ button {
     .logo {
       width: 105px;
     }
-    .menu {
+     .nav {
       display: none;
     }
   }
@@ -217,20 +324,23 @@ button {
     padding: 40px 24px 70px;
     flex-direction: column;
   }
-  .hero-text {
+  .hero__text {
     width: 100%;
     h1 {
       font-size: 38px;
     }
   }
-  .hero-img img {
+  .hero__image img {
     width: 240px;
   }
   .mini-card {
-    left: 60px;
-    bottom: -5px;
-    width: 230px;
+  left: 10px;
+  bottom: -20px;
+  width: 210px;
+  img{
+    width: 100px;
   }
+}
   .block {
     width: 100%;
     margin: 60px 0;
@@ -244,14 +354,14 @@ button {
     overflow-x: auto;
     justify-content: flex-start;
   }
-  .category-card {
+  .cat {
     min-width: 180px;
     height: 140px;
   }
-  .food-list {
+  .grid {
     grid-template-columns: 1fr;
   }
-  .food-card {
+  .food{
     height: 220px;
     h4 {
       font-size: 17px;
